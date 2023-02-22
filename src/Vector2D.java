@@ -38,6 +38,18 @@ public class Vector2D extends Point2D {
         this.y = y;
     }
 
+
+    /**
+     * Constructs and initializes a <code>Vector2D</code> and
+     * copies the point's coordinates
+     *
+     * @param p the <code>Point2D</code> to set this <code>Vector2D</code> to
+     */
+    public Vector2D(Point2D p) {
+        this.x = p.getX();
+        this.y = p.getY();
+    }
+
     /**
      * @return the x coordinate
      */
