@@ -178,19 +178,19 @@ public class Vector2D extends Point2D {
     /**
      * Vector addition
      *
-     * @param vector adds its values to this <code>Vector2D</code>
+     * @param p adds its values to this <code>Vector2D</code>
      */
-    public void add(Vector2D vector) {
-        this.setLocation(this.x + vector.getX(), this.y + vector.getY());
+    public void add(Point2D p) {
+        this.setLocation(this.x + p.getX(), this.y + p.getY());
     }
 
     /**
      * Vector subtraction
      *
-     * @param vector subtracts its values to this <code>Vector2D</code>
+     * @param p subtracts its values to this <code>Vector2D</code>
      */
-    public void subtract(Vector2D vector) {
-        this.setLocation(this.x - vector.getX(), this.y - vector.getY());
+    public void subtract(Point2D p) {
+        this.setLocation(this.x - p.getX(), this.y - p.getY());
     }
 
     /**
