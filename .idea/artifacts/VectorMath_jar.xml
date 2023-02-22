@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="VectorMath:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/VectorMath_jar</output-path>
+    <root id="archive" name="VectorMath.jar">
+      <element id="module-output" name="VectorMath" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/fxgraphics2d-1.10.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

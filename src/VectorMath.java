@@ -26,6 +26,13 @@ public class VectorMath {
         return new Vector2D(x, y);
     }
 
+    public static Vector2D scale(Vector2D vector, double scalar) {
+        double x = vector.getX() * scalar;
+        double y = vector.getY() * scalar;
+
+        return new Vector2D(x, y);
+    }
+
     public static double distanceBetween(Vector2D vector1, Vector2D vector2) {
         Vector2D v = VectorMath.subtract(vector1, vector2);
 
