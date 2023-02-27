@@ -44,4 +44,13 @@ public class VectorMath {
 
         return v.getDirection();
     }
+
+    public static Vector2D normalise(Vector2D vector) {
+        double length = vector.getLength();
+
+        double x = (vector.getX() / length);
+        double y = (vector.getY() / length);
+
+        return new Vector2D(x, y);
+    }
 }

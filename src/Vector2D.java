@@ -7,7 +7,7 @@ import java.util.Random;
 public class Vector2D extends Point2D {
 
     /**
-     *  The X coordinate of this <code>Vector2D</code>
+     * The X coordinate of this <code>Vector2D</code>
      */
     private double x;
 
@@ -105,7 +105,7 @@ public class Vector2D extends Point2D {
      * coordinates as the specified <code>Point2D</code> object.
      *
      * @param p the specified <code>Point2D</code> to which to set
-     * this <code>Vector2D</code>
+     *          this <code>Vector2D</code>
      */
     public void setLocation(Point2D p) {
         this.setLocation(p.getX(), p.getY());
@@ -152,16 +152,27 @@ public class Vector2D extends Point2D {
     }
 
     /**
+     * Normalizes this <code>Vector2D</code>
+     * sets the length of this <code>Vector2D</code> to 1
+     */
+    public void normalize() {
+        double length = this.getLength();
+
+        this.setX(this.x / length);
+        this.setY(this.y / length);
+    }
+
+    /**
      * Scales the length/distance of this <code>Vector2D</code>
      * to match the given length
      *
      * @param length the new length of the <code>Vector2D</code>
      */
     public void setLength(double length) {
-        double currentLength = this.getLength();
+        this.normalize();
 
-        this.setX((this.x / currentLength) * length);
-        this.setY((this.y / currentLength) * length);
+        this.setX(this.x * length);
+        this.setY(this.y * length);
     }
 
     /**
@@ -222,6 +233,7 @@ public class Vector2D extends Point2D {
     /**
      * Returns a <code>String</code> that represents the value
      * of this <code>Vector2D</code>.
+     *
      * @return a string representation of this <code>Vector2D</code>.
      */
     @Override
