@@ -53,4 +53,11 @@ public class VectorMath {
 
         return new Vector2D(x, y);
     }
+
+    public static Vector2D average(Vector2D... vector) {
+        Vector2D average = VectorMath.sum(vector);
+        average.scale(1.0 / vector.length);
+
+        return average;
+    }
 }
