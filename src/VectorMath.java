@@ -3,60 +3,60 @@ import java.awt.geom.Point2D;
 public class VectorMath {
     public static final double PI2 = Math.PI * 2;
 
-    public static double dot(Vector2D vector1, Vector2D vector2) {
-        return (vector1.getX() * vector2.getX()) + (vector1.getY() * vector2.getY());
+    public static double dot(Point2D p1, Point2D p2) {
+        return (p1.getX() * p2.getX()) + (p1.getY() * p2.getY());
     }
 
-    public static Vector2D sum(Vector2D... vector) {
-        double x = 0;
-        double y = 0;
+    public static Vector2D sum(Point2D... p) {
+        double sumX = 0;
+        double sumY = 0;
 
-        for (Vector2D vector2D : vector) {
-            x += vector2D.getX();
-            y += vector2D.getY();
+        for (Point2D point : p) {
+            sumX += point.getX();
+            sumY += point.getY();
         }
 
-        return new Vector2D(x, y);
+        return new Vector2D(sumX, sumY);
     }
 
-    public static Vector2D subtract(Vector2D vector1, Vector2D vector2) {
-        double x = vector1.getX() - vector2.getX();
-        double y = vector1.getY() - vector2.getY();
-
-        return new Vector2D(x, y);
-    }
-
-    public static Vector2D scale(Vector2D vector, double scalar) {
-        double x = vector.getX() * scalar;
-        double y = vector.getY() * scalar;
+    public static Vector2D subtract(Point2D p1, Point2D p2) {
+        double x = p1.getX() - p2.getX();
+        double y = p1.getY() - p2.getY();
 
         return new Vector2D(x, y);
     }
 
-    public static double distanceBetween(Vector2D vector1, Vector2D vector2) {
-        Vector2D v = VectorMath.subtract(vector1, vector2);
+    public static Vector2D scale(Point2D p, double scalar) {
+        double x = p.getX() * scalar;
+        double y = p.getY() * scalar;
+
+        return new Vector2D(x, y);
+    }
+
+    public static double distanceBetween(Point2D p1, Point2D p2) {
+        Vector2D v = VectorMath.subtract(p1, p2);
 
         return v.getLength();
     }
 
-    public static double relativeAngle(Vector2D origin, Vector2D pointer) {
+    public static double relativeAngle(Point2D origin, Point2D pointer) {
         Vector2D v = subtract(pointer, origin);
 
         return v.getDirection();
     }
 
-    public static Vector2D normalise(Vector2D vector) {
-        double length = vector.getLength();
+    public static Vector2D normalise(Point2D p) {
+        double length = p.distance(0, 0);
 
-        double x = (vector.getX() / length);
-        double y = (vector.getY() / length);
+        double x = (p.getX() / length);
+        double y = (p.getY() / length);
 
         return new Vector2D(x, y);
     }
 
-    public static Vector2D average(Vector2D... vector) {
-        Vector2D average = VectorMath.sum(vector);
-        average.scale(1.0 / vector.length);
+    public static Vector2D average(Point2D... p) {
+        Vector2D average = VectorMath.sum(p);
+        average.scale(1.0 / p.length);
 
         return average;
     }
