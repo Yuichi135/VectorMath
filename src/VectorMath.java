@@ -39,6 +39,12 @@ public class VectorMath {
         return v.getLength();
     }
 
+    public static double distanceBetweenSq(Point2D p1, Point2D p2) {
+        Vector2D v = VectorMath.subtract(p1, p2);
+
+        return v.getLengthSq();
+    }
+
     public static double relativeAngle(Point2D origin, Point2D pointer) {
         Vector2D v = subtract(pointer, origin);
 

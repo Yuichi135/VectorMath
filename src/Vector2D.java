@@ -68,13 +68,24 @@ public class Vector2D extends Point2D {
 
 
     /**
+     * Uses the pythagorean theorem to calculate the length/distance squared
+     *
+     * @return the length/distance squared of this <code>Vector2D</code>
+     */
+    public double getLengthSq() {
+        return (this.x * this.x) + (this.y * this.y);
+    }
+
+
+
+    /**
      * Uses the pythagorean theorem to calculate the length/distance
      * of the vector
      *
      * @return the length/distance of the <code>Vector2D</code>
      */
     public double getLength() {
-        return Math.sqrt((this.x * this.x) + (this.y * this.y));
+        return Math.sqrt(this.getLengthSq());
     }
 
     /**
@@ -154,12 +165,16 @@ public class Vector2D extends Point2D {
     /**
      * Normalizes this <code>Vector2D</code>
      * sets the length of this <code>Vector2D</code> to 1
+     *
+     * @return this <code>Vector2D</code>
      */
-    public void normalize() {
+    public Vector2D normalize() {
         double length = this.getLength();
 
         this.setX(this.x / length);
         this.setY(this.y / length);
+
+        return this;
     }
 
     /**
@@ -167,53 +182,73 @@ public class Vector2D extends Point2D {
      * to match the given length
      *
      * @param length the new length of the <code>Vector2D</code>
+     *
+     * @return this <code>Vector2D</code>
      */
-    public void setLength(double length) {
+    public Vector2D setLength(double length) {
         this.normalize();
 
         this.setX(this.x * length);
         this.setY(this.y * length);
+
+        return this;
     }
 
     /**
      * Rotates this <code>Vector2D</code> by an amount of degrees
      *
      * @param degrees the amount of degrees this <code>Vector2D</code> should rotate
+     *
+     * @return this <code>Vector2D</code>
      */
-    public void rotate(double degrees) {
+    public Vector2D rotate(double degrees) {
         double radians = Math.toRadians(degrees);
 
         double newX = this.x * Math.cos(radians) - this.y * Math.sin(radians);
         double newY = this.x * Math.sin(radians) + this.y * Math.cos(radians);
 
         this.setLocation(newX, newY);
+
+        return this;
     }
 
     /**
      * Scales this <code>Vector2D</code> by the given amount
      *
      * @param scalar how much this <code>Vector2D</code> should be scaled by
+     *
+     * @return this <code>Vector2D</code>
      */
-    public void scale(double scalar) {
+    public Vector2D scale(double scalar) {
         this.setLocation(this.x * scalar, this.y * scalar);
+
+        return this;
     }
 
     /**
      * Vector addition
      *
      * @param p adds its values to this <code>Vector2D</code>
+     *
+     * @return this <code>Vector2D</code>
      */
-    public void add(Point2D p) {
+    public Vector2D add(Point2D p) {
         this.setLocation(this.x + p.getX(), this.y + p.getY());
+
+        return this;
     }
 
     /**
      * Vector subtraction
      *
      * @param p subtracts its values to this <code>Vector2D</code>
+     *
+     * @return this <code>Vector2D</code>
      */
-    public void subtract(Point2D p) {
+    public Vector2D subtract(Point2D p) {
         this.setLocation(this.x - p.getX(), this.y - p.getY());
+
+        return this;
     }
 
     /**
