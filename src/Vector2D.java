@@ -2,9 +2,10 @@ import org.jfree.fx.FXGraphics2D;
 
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
+import java.io.Serializable;
 import java.util.Random;
 
-public class Vector2D extends Point2D {
+public class Vector2D extends Point2D implements Serializable {
 
     /**
      * The X coordinate of this <code>Vector2D</code>
